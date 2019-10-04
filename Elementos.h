@@ -27,12 +27,14 @@ typedef struct reg_paciente{
 	char nome[50];
 	char cpf[20];
 	int idade;
+	char sexo[1];
 } Paciente;
 
-Paciente registra_paciente(int i, char* n, char* cpf, int pri){
+Paciente registra_paciente(int i, char* n, char* cpf, int pri,char* sexo){
 	Paciente novo;
 	strcpy(novo.nome, n);
 	strcpy(novo.cpf,cpf);
+	strcpy(novo.sexo,sexo);
 	novo.idade = i;
 	if(pri > 3){
 		novo.prioridade = 3;
