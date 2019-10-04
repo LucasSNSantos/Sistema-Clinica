@@ -6,7 +6,7 @@
 
 
 typedef struct no{
-	PACIENTE dados;
+	Paciente dados;
 	struct no *prox;
 } NO;
 
@@ -15,10 +15,10 @@ typedef struct{
 	NO *fim;
 }FILA; 
 
-FILA* cria_fila(){ // ela irá alocar um espaço na memória;
+FILA* cria_fila(){ 
 	FILA *fi = (FILA*) malloc(sizeof(FILA));
-	if(fi != NULL){ // Deu certo a alocação
-		fi->fim = NULL;  // Faz o ponteiro apontar para NULL, ou seja, a fila está vazia
+	if(fi != NULL){ 
+		fi->fim = NULL;  
 		fi->ini = NULL;
 	}
 	return fi;
@@ -29,15 +29,13 @@ int fila_vazia(FILA *f){
 	return 0;
 }
 
-// Função que insere ao final da fila
-int enfileira(FILA *f, PACIENTE p){ // Esse *f é um ponteiro que está apontando para outro ponteiro para o endereço de memória original da LISTA*, o que está apontando para o NULL
+int enfileira(FILA *f, Paciente p){ 
 	if(f==NULL) return 0;
 	NO *novo_no = (NO*)malloc(sizeof(NO));
-	if(novo_no==NULL) return 0; // Não alocou memória
-	// atribuir os valores para o novo nó;
+	if(novo_no==NULL) return 0; 
 	novo_no->dados=p;
 	novo_no->prox=NULL;
-	if(f->ini==NULL){// Fila está vazia, vamos inserir no início
+	if(f->ini==NULL){
 		f->ini = novo_no;
 		f->fim = novo_no;
 	}else{
@@ -50,7 +48,7 @@ int enfileira(FILA *f, PACIENTE p){ // Esse *f é um ponteiro que está apontando 
 	return 1;
 }
 
-int desenfileira(FILA *f, PACIENTE *p){ 
+int desenfileira(FILA *f, Paciente *p){ 
 	if(f==NULL) return 0;
 	NO *aux = f->ini;
 	
@@ -59,28 +57,22 @@ int desenfileira(FILA *f, PACIENTE *p){
 	strcpy(p->cpf, aux->dados.cpf);
 	p->idade = aux->dados.idade;
 	p->prioridade = aux->dados.prioridade;
-	
-	
-	
-	// Desloca o inicio fazendo-o apontar para o próximo nó
+		
 	f->ini = aux->prox;
-	
-	// Libera o nó desempilhado
 	free(aux);
 
 	return 1;
 }
 
 
-void imprime_fila(FILA *f){
-	if(fila_vazia(f)) printf("FILA VAZIA! ");
+int imprime_fila(FILA *f){
+	if(fila_vazia(f)) return 0;
 	NO *aux = f->ini;
-	printf("INI <=|");
 	while (aux!=NULL){
-		printf("%s, %d anos, %s, %s, %s|", aux->dados.nome, aux->dados.idade, (aux->dados.sexo=='F'?"Fem.":"Masc."), aux->dados.prioridade , aux->dados.cpf);
-		aux=aux->prox;
+		
+	aux=aux->prox;
 	}
-	printf("<= FIM\n");
+	return 1;
 }
 
 
