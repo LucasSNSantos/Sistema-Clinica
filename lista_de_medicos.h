@@ -24,15 +24,13 @@ int listase_vazia(LISTA *l){
 	return 0;
 }
 
-// Função que insere ao final da lista
-int insere_listase(LISTA *l, CARRO c){ // Esse *l é um ponteiro que está apontando para outro ponteiro para o endereço de memória original da LISTA*, o que está apontando para o NULL
+int insere_listase(LISTA *l, Medico c){ 
 	if(l==NULL) return 0;
 	NO *novo_no = (NO*)malloc(sizeof(NO));
-	if(novo_no==NULL) return 0; // Não alocou memória
-	// atribuir os valores para o novo nó;
+	if(novo_no==NULL) return 0; 
 	novo_no->dados= c;
 	novo_no->prox=NULL;
-	if((*l)==NULL)// Lista está vazia, vamos inserir no início
+	if((*l)==NULL)
 		*l = novo_no;
 	else{
 		NO *aux = *l;
