@@ -2,13 +2,14 @@
 #define ELEMENTOS_H
 #include<string.h>
 #include<stdlib.h>
-#include"Medicos.h
+#include"Medicos.h"
 
 typedef struct reg_paciente{
 	int prioridade;
 	char nome[50];
 	char cpf[20];
 	int idade;
+	Medico escolhido;
 } Paciente;
 
 Paciente registra_paciente(int i, char* n, char* cpf, int pri){
@@ -53,6 +54,13 @@ Registro_Paciente* novo_registro(Paciente p){
 		return novo;
 	}
 	return NULL;
+}
+
+
+Paciente Associa_Medico(Paciente p, Medico m){
+	Paciente novo = p;
+	novo.escolhido = m;
+	return novo;
 }
 
 
