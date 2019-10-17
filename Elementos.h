@@ -32,7 +32,7 @@ void printa_paciente(Paciente p){
 	printf("Nome: %s\n", p.nome);
 	printf("Idade: %d", p.idade);
 	printf("CPF: %s \n", p.cpf);
-	printf("Status de Prioridade: %d", p.prioridade);
+	printf("Status de Prioridade: %d\n", p.prioridade);
 }
 
 
