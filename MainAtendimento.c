@@ -5,11 +5,11 @@
 
 int main(void){
 	FILE* atendidos;
-	atendidos = fopen(atendimento,"w");
+	atendidos = fopen(URLatendimento,"w");
 	
 	Medico dr1 = registra_medico(2,"Joao");
-	Medico dr2 = registra_medico(3,"Vampiroso");
-	Medico dr3 = registra_medico(1,"Velasquez");
+	Paciente j1 = registra_paciente(12,"Joaozin","72188",1);
+	
 	
 	Lista_Med* medicos = init_lista();
 	

@@ -14,10 +14,10 @@ typedef struct{
 	NO *topo;
 }PILHA;
 
-PILHA* cria_pilha(){ // ela irá alocar um espaço na memória;
+PILHA* cria_pilha(){ 
 	PILHA *pi = (PILHA*) malloc(sizeof(PILHA));
-	if(pi != NULL) // Deu certo a alocação
-		pi->topo = NULL;  // Faz o ponteiro apontar para NULL, ou seja, a pilha está vazia
+	if(pi != NULL) 
+		pi->topo = NULL;  
 	return pi;
 }	
 
@@ -26,16 +26,12 @@ int pilha_vazia(PILHA *p){
 	return 0;
 }
 
-// Função que insere no topo da pilha
 int empilha(PILHA *p, Paciente c){ 
 	if(p == NULL) return 0;
 	NO *novo_no = (NO*)malloc(sizeof(NO));
-	if(novo_no==NULL) return 0; // Não alocou memória
-	// atribuir os valores para o novo nó;
+	if(novo_no==NULL) return 0; 
 	novo_no->dados= c;
-	// Faz o novo nó apontar para o nó do topo da pilha
 	novo_no->prox=p->topo;
-	// Desloca o topo fazendo-o apontar para o novo nó
 	p->topo = novo_no;
 	return 1;
 }
@@ -51,28 +47,26 @@ int desempilha(PILHA *p, Paciente *c){
 	p->idade = aux->dados.idade;
 	p->prioridade = aux->dados.prioridade;
 	
-	// Desloca o topo fazendo-o apontar para o próximo nó
 	p->topo = aux->prox;
 	
-	// Libera o nó desempilhado
 	free(aux);
 
 	return 1;
 }
 
 
-void imprime_pilha(PILHA *p){
-	printf("\n==============TOPO==============\n");	
+void imprime_pilha(PILHA *p,FILE* arq){
+	fprintf(arq,"%s","\n==============Pacientes Atendidos==============\n");	
 	if(pilha_vazia(p)){
-		printf("Pilha Vazia!\n");	
+		fprintf(arq,"%s","Pilha Vazia!\n");	
 		return;
 	} 
 	NO *aux = p->topo;
 	while (aux!=NULL){
-		printf("%s, %d anos, %s, %s, %s|", aux->dados.nome, aux->dados.idade, (aux->dados.sexo=='F'?"Fem.":"Masc."), aux->dados.prioridade , aux->dados.cpf);
+		printf(arq,"%s %s, %d anos, %s, %s, %s|", aux->dados.nome, aux->dados.idade, (aux->dados.sexo=='F'?"Fem.":"Masc."), aux->dados.prioridade , aux->dados.cpf);
 		aux=aux->prox;
 	}
-	printf("==============BASE==============\n");	
+	fprintf(arq,"%s","==================================================\n");	
 }
 
 int tamanho_pilha(PILHA *p){
