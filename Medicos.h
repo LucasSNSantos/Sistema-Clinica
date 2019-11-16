@@ -51,7 +51,17 @@ Paciente remove_paciente(Lista* f, int codigo)
 	return temp;
 }
 
-
+void printa_lista_pacientes(Lista* li)
+{
+	if(li != NULL && li->ini >0 )
+	{
+		int i;
+		for(i = 0; i < li->ini; i++)
+		{
+			printa_paciente(li->pacientes[i]);
+		}
+	}
+}
 
 
 
@@ -96,7 +106,23 @@ Paciente LiberaPaciente(Medico m, int codigo)
 	return temp;
 }
 
-
+void printa_medico(Medico m)
+{
+	printf(" ");
+	printf("Nome: %s\n",m.Nome);
+	printf("Idade: %d\n",m.idade);
+	printf("Area: %s\n",m.Area);
+	if(m.pacientes != NULL && m.pacientes->ini > 0)
+	{
+		printf("Pacientes de %s\n", m.Nome);
+		printf("Quantidade de pacientes: %d", m.pacientes->ini);
+		printa_lista_pacientes(m.pacientes);
+	}else
+	{
+		printf("Nenhum paciente atendido\n");
+	}
+	
+}
 
 
 
