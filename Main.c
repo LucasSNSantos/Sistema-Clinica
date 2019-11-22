@@ -15,12 +15,11 @@ int interface(){
 }
 
 sysgen(int e){
-	int x;
-	char wait[2];
+	int x, u;
 	system("cls");
 	switch(e) {
 	case 1:
-		puts("Clinica Florence Nightingale\n");
+		puts("Clinica Nero Claudius\n");
 		break;
 	case 2:
 		puts("Clinica Jeanne D'arc'\n");
@@ -32,10 +31,22 @@ sysgen(int e){
 		puts("Clinica Abigail Willians\n");
 		break;
 	}
-	printf("Press Enter to Continue...\n");
-	getchar();
-	x = interface();
-	sysgen(x);
+	syscon();
+}
+
+syscon(){
+	int u, x;
+	puts("Pressione 1 para continuar");
+	puts("Pressione 2 para sair");
+	scanf("%d", &u);
+	if(u==1){
+		x = interface();
+		sysgen(x);	
+	} else if (u!=2){
+		system("cls");
+		puts("Erro! Entrada Invalida");
+		syscon();
+	}
 }
 
 
