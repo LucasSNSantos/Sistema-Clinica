@@ -1,7 +1,8 @@
-#ifndef OBJETOS_H
-#define OBJETOS_H
-
+#ifndef PACIENTES_H
+#define PACIENTES_H
 #include<string.h>
+#include<stdio.h>
+
 #define Prioridade int
 #define Verde 3
 #define Amarelo 2

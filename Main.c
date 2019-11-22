@@ -35,7 +35,7 @@ sysgen(int e){
 	if(u==1){
 		x = interface();
 		sysgen(x);	
-	} else if ()
+	}
 }
 
 syscon(u){
@@ -44,4 +44,4 @@ syscon(u){
 
 	
 	
-}
+};
