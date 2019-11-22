@@ -15,8 +15,7 @@ int interface(){
 }
 
 sysgen(int e){
-	int x;
-	char wait[2];
+	int x, u;
 	system("cls");
 	switch(e) {
 	case 1:
@@ -32,10 +31,16 @@ sysgen(int e){
 		puts("Clinica Abigail Willians\n");
 		break;
 	}
-	printf("Press Enter to Continue...\n");
-	getchar();
-	x = interface();
-	sysgen(x);
+	puts("Pressione 1 para continuar");
+	puts("Pressione 2 para sair");
+	scanf("%d", &u);
+	if(u==1){
+		x = interface();
+		sysgen(x);	
+	} else if ()
+}
+
+syscon(u){
 }
 
 
