@@ -57,6 +57,24 @@ int insere_paciente_com_prioridades(Fila_Prioridade* fila, Paciente p)
 	return 1;
 }
 
+int tamanho_fila_prioridades(Fila_Prioridade* fila)
+{
+	int cont = 0;
+	if(fila == NULL)
+	{
+		return 0;
+	}
+	
+	Fila_Simples* aux;
+	aux = fila->inicio;
+	if(aux == NULL) return 0;
+	while(aux != NULL)
+	{
+		cont++;
+		aux = aux->prox_fila;
+	}
+	return cont;
+}
 
 
 
