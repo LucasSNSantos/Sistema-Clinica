@@ -1,5 +1,6 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
+#include"FilaPrioridade.h"
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -35,11 +36,10 @@ sysgen(int e)
 		puts("Clinica Abigail Willians\n");
 		break;
 	}
-	syscon();
+//	syscon();
 }
 
-syscon()
-{
+syscon(){
 	int u, x;
 	puts("Pressione 1 para continuar");
 	puts("Pressione 2 para sair");
@@ -55,6 +55,38 @@ syscon()
 		syscon();
 	}
 }
+
+int sys_reg_Paciente(Fila_Prioridade* fila)
+{
+	Paciente reg;
+	puts("Digite o Codigo do paciente");
+	scanf("%d", &reg.codigo);
+	puts("Digite a Idade do paciente");
+	scanf("%d", &reg.idade);
+	puts("Digite o Sexo do paciente");
+	scanf("%c", &reg.Sexo);
+	puts("Digite o Nome do paciente");
+	scanf("%s", &reg.Nome);
+	puts("Digite o CPF do paciente");
+	scanf("%s", &reg.CPF);
+	puts("Digite o Problema do paciente");
+	scanf("%s", &reg.Anamnese);
+	puts("Prioridade do Paciente");
+	scanf("%d", &reg.prioridade);
+	if(reg.prioridade < 1 || reg.prioridade > 3)
+	{
+		reg.prioridade = 3;
+	}
+	insere_paciente_com_prioridades(fila,reg);
+	return 1;
+}
+
+
+
+
+
+
+
 
 
 #endif
