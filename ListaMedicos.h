@@ -1,6 +1,5 @@
 #ifndef LISTA_MEDICOS_H
 #define LISTA_MEDICOS_H
-
 #include<stdlib.h>
 #include"Medicos.h"
 
@@ -8,16 +7,14 @@
 typedef struct no_medico{
 	Medico m;
 	struct no_medico* prox;
-	struct no_medico* ante;
 } No;
 
 No* preenche_no(Medico m)
 {
-	No n = (No*) malloc(sizeof(No));
+	No* n = (No*) malloc(sizeof(No));
 	if(n != NULL)
 	{
 		n->m = m;
-		n->ante = NULL;
 		n->prox = NULL;
 		return n;
 	}
@@ -28,6 +25,7 @@ No* preenche_no(Medico m)
 struct lista{
 	int tam;
 	No* inicio;
+	No* final;
 };
 typedef struct lista ListaMedicos;
 
@@ -38,6 +36,7 @@ ListaMedicos* inicia_lista_medicos()
 	if(l != NULL)
 	{
 		l->inicio = NULL;
+		l->final = NULL;
 		l->tam = 0;
 		return l;
 	}
@@ -52,6 +51,7 @@ int insere_medico(ListaMedicos* li, Medico m)
 	if(aux == NULL)
 	{
 		li->inicio = preenche_no(m);
+		li->final = li->inicio;
 		li->tam++;
 		return 1;
 	}
@@ -61,7 +61,7 @@ int insere_medico(ListaMedicos* li, Medico m)
 		aux = aux->prox;
 	}
 	aux->prox = preenche_no(m);
-	aux->prox->ante = aux;
+	li->final = aux->prox;
 	li->tam++;
 	return 1;	
 }
@@ -82,7 +82,41 @@ Medico busca_medico(ListaMedicos* li, int codigo)
 	return temp;
 }
 
+int existe_este_medico(ListaMedicos* li, Medico medic)
+{
+	if(li == NULL || li->inicio == NULL) return 0;
+		No* aux = li->inicio;
+	while(aux->m.codigo != medic.codigo  && aux != NULL)
+	{
+		aux = aux->prox;
+	}
+	if(aux == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
 
+void printa_lista_medicos(ListaMedicos* li)
+{
+	if(li == NULL || li->inicio == NULL)
+	{
+		printf("Por enquanto nao ha medicos disponiveis");
+	}else
+	{
+		No* aux = li->inicio;
+		while(aux != NULL)
+		{
+			printa_medico(aux->m);
+			aux = aux->prox;
+		}
+	}
+	
+	
+}
 
 
 

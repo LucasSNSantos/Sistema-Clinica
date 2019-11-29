@@ -22,20 +22,6 @@ struct paciente{
 typedef struct paciente Paciente;
 
 
-//Registrando Paciente;
-Paciente Registro(int codigo,int idade, char* nome,int prioridade, char sexo, char* CPF, char* anam)
-{
-	Paciente f;
-	f.codigo = codigo;	
-	f.idade = idade;
-	strcpy(f.Nome,nome);
-	f.prioridade = prioridade;
-	f.Sexo = sexo;
-	strcpy(f.CPF,CPF);
-	strcpy(f.Anamnese,anam);
-	return f;
-}
-
 //Printando o paciente
 void printa_paciente(Paciente p)
 {

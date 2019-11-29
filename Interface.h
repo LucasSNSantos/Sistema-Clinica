@@ -1,6 +1,7 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 #include"FilaPrioridade.h"
+#include"ListaMedicos.h"
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -8,12 +9,12 @@ int interface()
 {
 	int u;
 	system("cls");
-	puts("Clinica Florence Nightingale\n");
-	puts("Pressione 1 para cadastrar um Paciente");
-	puts("Pressione 2 para cadastrar um Medico");
-	puts("Pressione 3 para encontrar um Paciente");
-	puts("Pressione 4 para encontrar um Medico");
-	puts("Pressione 5 para sair");
+	puts("__________Clinica Florence Nightingale__________\n");
+	puts("Pressione 1 para cadastrar um Paciente |");
+	puts("Pressione 2 para Medicos Disponiveis   |");
+	puts("Pressione 3 para encontrar um Paciente |");
+	puts("Pressione 4 para encontrar um Medico   |");
+	puts("Pressione 6 para sair");
 	scanf("%d", &u);
 	return u;
 }
@@ -81,8 +82,20 @@ int sys_reg_Paciente(Fila_Prioridade* fila)
 	return 1;
 }
 
+int sys_reg_Medico(Fila_Prioridade* fila)
+{
+	//TODO
+}
 
+int sys_mostra_Pacientes(Fila_Prioridade* fila)
+{
+	//TODO
+}
 
+int sys_mostra_Medicos(ListaMedicos* li)
+{
+	printa_lista_medicos(li);
+}
 
 
 
