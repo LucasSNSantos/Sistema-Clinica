@@ -1,7 +1,8 @@
-#ifndef OBJETOS_H
-#define OBJETOS_H
-
+#ifndef PACIENTES_H
+#define PACIENTES_H
 #include<string.h>
+#include<stdio.h>
+
 #define Prioridade int
 #define Verde 3
 #define Amarelo 2
@@ -10,6 +11,7 @@
 
 //Estrutura do Paciente
 struct paciente{
+	int codigo;
 	int idade;
 	char Nome[30];
 	Prioridade prioridade;
@@ -20,15 +22,15 @@ struct paciente{
 typedef struct paciente Paciente;
 
 
-Paciente Registro(int idade, char* nome,int prioridade, char sexo, char* CPF, char* anam)
+//Printando o paciente
+void printa_paciente(Paciente p)
 {
-	Paciente f;
-	f.idade = idade;
-	strcpy(f.Nome,nome);
-	
+	printf("\n");
+	printf("Nome: %s\n", p.Nome);
+	printf("Idade: %d \n", p.idade);
+	printf("Sexo: %c \n",p.Sexo);
+	printf("Anamnese: %s\n", p.Anamnese);
 }
-
-
 
 
 
