@@ -47,11 +47,11 @@ int empilha_paciente(PilhaPacientes* pi, Paciente p)
 	if(pi == NULL) return 0;
 	if(pi->topo = NULL)
 	{
-		pi->topo = registra_no_Paciente(p);
+		pi->topo = registra_no_do_Paciente(p);
 		pi->tam++;
 		return 1;
 	}
-	pi->topo->prox = registra_no_Paciente(p);
+	pi->topo->prox = registra_no_do_Paciente(p);
 	pi->topo->prox->ante = pi->topo;
 	pi->topo = pi->topo->prox;
 	pi->tam++;
