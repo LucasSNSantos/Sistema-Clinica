@@ -8,6 +8,7 @@
 typedef struct no{
 	Medico dados;
 	struct no *prox;
+	struct no *ant;
 } NO;
 
 typedef NO* LISTA; // Ponteiro para um Ponteiro
@@ -25,12 +26,21 @@ int listase_vazia(LISTA *l){
 }
 
 // Função que insere ao final da lista
-int insere_listase(LISTA *l, CARRO c){ // Esse *l é um ponteiro que está apontando para outro ponteiro para o endereço de memória original da LISTA*, o que está apontando para o NULL
+int insere_listase(LISTA *l, Medicos c){ // Esse *l é um ponteiro que está apontando para outro ponteiro para o endereço de memória original da LISTA*, o que está apontando para o NULL
 	if(l==NULL) return 0;
 	NO *novo_no = (NO*)malloc(sizeof(NO));
 	if(novo_no==NULL) return 0; // Não alocou memória
 	// atribuir os valores para o novo nó;
 	novo_no->dados= c;
+	if(novo_no->ant == NULL){
+		novo_no->ant = NULL;
+	}else{
+		NO *aux2 = *l;
+		while(aux2->ant != NULL){
+			aux2 = aux2->ant;
+		}
+		aux2->ant = novo_no;
+	}
 	novo_no->prox=NULL;
 	if((*l)==NULL)// Lista está vazia, vamos inserir no início
 		*l = novo_no;
