@@ -11,11 +11,11 @@ int interface()
 	int u;
 	system("cls");
 	puts("+>>>>>>>>_Clinica Florence Nightingale_<<<<<<<<<+\n");
-	puts("|    Pressione 1 para cadastrar um Paciente     |");
-	puts("|    Pressione 2 para Medicos Disponiveis       |");
-	puts("|    Pressione 3 para encontrar um Paciente     |");
-	puts("|    Pressione 4 para encontrar um Medico       |");
-	puts("|    Pressione 6 para sair                      |");
+	puts("|    Pressione 1 para Cadastrar um Paciente     |");
+	puts("|    Pressione 2 para Pacientes Cadastrados     |");
+	puts("|    Pressione 3 para Cadastrar um Medico       |");
+	puts("|    Pressione 4 para Medicos Disponiveis       |");
+	puts("|    Pressione 5 para SAIR                      |");
 	puts("|_______________________________________________|");
 	scanf("%d", &u);
 	return u;
