@@ -6,29 +6,16 @@
 
 struct medico{
 	int codigo;
-	int idade;
 	char Nome[40];
 	char Area[50];
 	PilhaPacientes* pacientes;
 };
 typedef struct medico Medico;
 
-Medico registra_medico(int id, int idade, char* nome, char* area)
-{
-	Medico m;
-	strcpy(m.Nome,nome);
-	strcpy(m.Area,area);
-	m.codigo = id;
-	m.idade = idade;
-	m.pacientes = inicia_Pilha_Pacientes();
-	return m;
-}
-
 void printa_medico(Medico m)
 {
 	printf(" ");
 	printf("Nome: %s\n",m.Nome);
-	printf("Idade: %d\n",m.idade);
 	printf("Area: %s\n",m.Area);
 }
 

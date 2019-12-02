@@ -30,7 +30,8 @@ int main()
 			printf("Procura Paciente");
 			break;
 		case 4:
-			printf("Procura Medico");
+			system("cls");
+			sys_reg_Medico(MedicosDisp);
 			break;
 		default:
 			printf("Default");				
