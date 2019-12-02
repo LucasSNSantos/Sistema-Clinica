@@ -49,7 +49,7 @@ int insere_paciente_com_prioridades(Fila_Prioridade* fila, Paciente p)
 	if(fila == NULL) return 0;
 	Fila_Simples* aux;
 	aux = fila->inicio;
-	while(aux->prox_fila != NULL || aux->prioridade_da_fila != pri)
+	while(aux != NULL && aux->prioridade_da_fila != pri)
 	{
 		aux = aux->prox_fila;
 	}
