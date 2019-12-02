@@ -23,22 +23,27 @@ int main()
 			sys_reg_Paciente(Atendimentos);
 			break;
 		case 2:
+			printf("Mostra Paciente");
+			break;
+		case 3:
+			printf("Registra Medico");
+			break;
+		case 4:
 			system("cls");
 			sys_mostra_Medicos(MedicosDisp);
 			break;
-		case 3:
-			printf("Procura Paciente");
-			break;
-		case 4:
-			printf("Procura Medico");
-			break;
+		case 5:
+			contin = 0;
 		default:
-			printf("Default");				
+			printf("Codigo Invalido!");
+			break;			
 	}
+		if (contin == 1){
 		printf("\n");
 		puts("Pressione 1 para continuar");
 		puts("Pressione 2 para sair");
 		scanf("%d", &contin);
+		}
 	}
 	
 		
