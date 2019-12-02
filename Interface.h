@@ -2,6 +2,7 @@
 #define INTERFACE_H
 #include"FilaPrioridade.h"
 #include"ListaMedicos.h"
+#include"Pacientes.h"
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -9,71 +10,42 @@ int interface()
 {
 	int u;
 	system("cls");
-	puts("__________Clinica Florence Nightingale__________\n");
-	puts("Pressione 1 para cadastrar um Paciente |");
-	puts("Pressione 2 para Medicos Disponiveis   |");
-	puts("Pressione 3 para encontrar um Paciente |");
-	puts("Pressione 4 para encontrar um Medico   |");
-	puts("Pressione 6 para sair");
+	puts("+>>>>>>>>_Clinica Florence Nightingale_<<<<<<<<<+\n");
+	puts("|    Pressione 1 para cadastrar um Paciente     |");
+	puts("|    Pressione 2 para Medicos Disponiveis       |");
+	puts("|    Pressione 3 para encontrar um Paciente     |");
+	puts("|    Pressione 4 para encontrar um Medico       |");
+	puts("|    Pressione 6 para sair                      |");
+	puts("|_______________________________________________|");
 	scanf("%d", &u);
 	return u;
-}
-
-sysgen(int e)
-{
-	int x, u;
-	system("cls");
-	switch(e) {
-	case 1:
-		puts("Clinica Nero Claudius\n");
-		break;
-	case 2:
-		puts("Clinica Joanne D'arc'\n");
-		break;
-	case 3:
-		puts("Clinica Queen Artoria\n");
-		break;
-	default:
-		puts("Clinica Abigail Willians\n");
-		break;
-	}
-//	syscon();
-}
-
-syscon(){
-	int u, x;
-	puts("Pressione 1 para continuar");
-	puts("Pressione 2 para sair");
-	scanf("%d", &u);
-	if(u==1)
-	{
-		x = interface();
-		sysgen(x);	
-	} else if (u!=2)
-	{
-		system("cls");
-		puts("Erro! Entrada Invalida");
-		syscon();
-	}
 }
 
 int sys_reg_Paciente(Fila_Prioridade* fila)
 {
 	Paciente reg;
-	puts("Digite o Codigo do paciente");
+	
+	puts("Digite o Codigo do paciente:");
 	scanf("%d", &reg.codigo);
-	puts("Digite a Idade do paciente");
+	
+	puts("Digite a Idade do paciente:");
 	scanf("%d", &reg.idade);
-	puts("Digite o Sexo do paciente");
-	scanf("%c", &reg.Sexo);
-	puts("Digite o Nome do paciente");
-	scanf("%s", &reg.Nome);
-	puts("Digite o CPF do paciente");
-	scanf("%s", &reg.CPF);
-	puts("Digite o Problema do paciente");
-	scanf("%s", &reg.Anamnese);
-	puts("Prioridade do Paciente");
+	
+	puts("Digite o Sexo do paciente:");
+	fgets(reg.Nome, 2, stdin);
+	
+	puts("Digite o Nome do paciente:");
+	fgets(reg.Nome, 30, stdin);
+		
+	puts("Digite o CPF do paciente:");
+	gets(reg.CPF);
+	
+	puts("Digite a Anamnese e a Queixa Principal do paciente:");
+	gets(reg.Anamnese);
+	
+	puts("Prioridade do Paciente( 1 - Baixa / 2 - Media  / 3 - Alta ):");
 	scanf("%d", &reg.prioridade);
+	
 	if(reg.prioridade < 1 || reg.prioridade > 3)
 	{
 		reg.prioridade = 3;

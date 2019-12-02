@@ -4,6 +4,7 @@
 
 int main()
 {
+	int contin = 1;
 	Fila_Prioridade* Atendimentos;
 	ListaMedicos* MedicosDisp;
 	
@@ -13,7 +14,7 @@ int main()
 	cria_subfila_com_prioridade(Amarelo,Atendimentos);
 	cria_subfila_com_prioridade(Verde,Atendimentos);
 	
-	
+	while(contin == 1){
 	int retorno = interface();
 	switch(retorno)
 	{
@@ -33,6 +34,10 @@ int main()
 			break;
 		default:
 			printf("Default");				
+	}
+		puts("Pressione 1 para continuar");
+		puts("Pressione 2 para sair");
+		scanf("%d", &contin);
 	}
 	
 		
