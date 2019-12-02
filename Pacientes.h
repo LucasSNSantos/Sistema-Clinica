@@ -15,7 +15,7 @@ struct paciente{
 	int idade;
 	char Nome[30];
 	Prioridade prioridade;
-	char Sexo;
+	char Sexo[30];
 	char CPF[10];
 	char Anamnese[40]; 	
 };
