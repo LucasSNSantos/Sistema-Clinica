@@ -24,29 +24,38 @@ int interface()
 int sys_reg_Paciente(Fila_Prioridade* fila)
 {
 	Paciente reg;
-	
 	puts("Digite o Codigo do paciente:");
+	fflush(stdin);
 	scanf("%d", &reg.codigo);
 	
 	puts("Digite a Idade do paciente:");
+	fflush(stdin);
 	scanf("%d", &reg.idade);
 	
 	puts("Digite o Sexo do paciente:");
-	fgets(reg.Nome, 2, stdin);
-	
+	fflush(stdin);
+	scanf("%[^\n]s", &reg.Sexo);
+		
 	puts("Digite o Nome do paciente:");
-	fgets(reg.Nome, 30, stdin);
+	fflush(stdin);
+	scanf("%[^\n]s", &reg.Nome);
 		
 	puts("Digite o CPF do paciente:");
-	gets(reg.CPF);
+	fflush(stdin);
+	scanf("%[^\n]s", &reg.CPF);
 	
 	puts("Digite a Anamnese e a Queixa Principal do paciente:");
+	fflush(stdin);
 	gets(reg.Anamnese);
 	
 	puts("Prioridade do Paciente( 1 - Baixa / 2 - Media  / 3 - Alta ):");
+	fflush(stdin);
 	scanf("%d", &reg.prioridade);
 	
-	if(reg.prioridade < 1 || reg.prioridade > 3)
+	if(reg.prioridade < 1)
+	{
+		reg.prioridade = 1;
+	}else if(reg.prioridade > 3)
 	{
 		reg.prioridade = 3;
 	}

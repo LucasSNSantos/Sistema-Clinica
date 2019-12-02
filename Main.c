@@ -35,6 +35,7 @@ int main()
 		default:
 			printf("Default");				
 	}
+		printf("\n");
 		puts("Pressione 1 para continuar");
 		puts("Pressione 2 para sair");
 		scanf("%d", &contin);
