@@ -86,7 +86,7 @@ void sys_reg_Medico(ListaMedicos* li)
 
 int sys_mostra_Pacientes(Fila_Prioridade* fila)
 {
-	//TODO
+	printa_fila_de_prioridades(fila);
 }
 
 int sys_mostra_Medicos(ListaMedicos* li)

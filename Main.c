@@ -10,9 +10,9 @@ int main()
 	
 	Atendimentos = inicia_fila_de_prioridades();
 	MedicosDisp = inicia_lista_medicos();
-	cria_subfila_com_prioridade(Vermelho,Atendimentos);
-	cria_subfila_com_prioridade(Amarelo,Atendimentos);
 	cria_subfila_com_prioridade(Verde,Atendimentos);
+	cria_subfila_com_prioridade(Amarelo,Atendimentos);
+	cria_subfila_com_prioridade(Vermelho,Atendimentos);
 	
 	while(contin == 1)
 	{
@@ -23,7 +23,7 @@ int main()
 			sys_reg_Paciente(Atendimentos);
 			break;
 		case 2:
-			printf("Mostra Paciente");
+			sys_mostra_Pacientes(Atendimentos);
 			break;
 		case 3:
 			system("cls");
