@@ -13,11 +13,11 @@
 struct paciente{
 	int codigo;
 	int idade;
-	char Nome[30];
+	char Nome[300];
 	Prioridade prioridade;
-	char Sexo[30];
-	char CPF[10];
-	char Anamnese[40]; 	
+	char Sexo[300];
+	char CPF[100];
+	char Anamnese[400]; 	
 };
 typedef struct paciente Paciente;
 
@@ -26,6 +26,7 @@ typedef struct paciente Paciente;
 void printa_paciente(Paciente p)
 {
 	printf("\n");
+	printf("Prioridade: %d \n", p.prioridade);
 	printf("Nome: %s\n", p.Nome);
 	printf("Idade: %d \n", p.idade);
 	printf("Sexo: %c \n",p.Sexo);
