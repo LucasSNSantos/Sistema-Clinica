@@ -17,11 +17,12 @@ int interface()
 	puts("|    Pressione 4 para Medicos Disponiveis       |");
 	puts("|    Pressione 5 para SAIR                      |");
 	puts("|_______________________________________________|");
+	fflush(stdin);
 	scanf("%d", &u);
 	return u;
 }
 
-int sys_reg_Paciente(Fila_Prioridade* fila)
+void sys_reg_Paciente(Fila_Prioridade* fila)
 {
 	Paciente reg;
 	puts("Digite o Codigo do paciente:");
@@ -60,16 +61,11 @@ int sys_reg_Paciente(Fila_Prioridade* fila)
 		reg.prioridade = 3;
 	}
 	insere_paciente_com_prioridades(fila,reg);
-	return 1;
 }
 
-int sys_reg_Medico(ListaMedicos* li)
+void sys_reg_Medico(ListaMedicos* li)
 {
 	Medico temp;
-	if(li == NULL || li->inicio == NULL)
-	{
-		return 0;
-	}
 	puts("Digite o CRM: ");
 	fflush(stdin);
 	scanf("%d", &temp.codigo);
@@ -81,12 +77,11 @@ int sys_reg_Medico(ListaMedicos* li)
 	
 	puts("Digite a Especialidade do Medico: ");
 	fflush(stdin);
-	scanf("%d", &temp.Area);
+	scanf("%[^\n]s", &temp.Area);
 	
 	temp.pacientes = inicia_Pilha_Pacientes();
 	
 	insere_medico(li,temp);
-	return 1;
 }
 
 int sys_mostra_Pacientes(Fila_Prioridade* fila)
