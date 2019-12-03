@@ -76,6 +76,35 @@ int tamanho_fila_prioridades(Fila_Prioridade* fila)
 	return cont;
 }
 
+void printa_fila_de_prioridades(Fila_Prioridade* fila)
+{
+	if(fila != NULL && fila->inicio != NULL)
+	{
+		Fila_Simples* aux;
+		aux = fila->inicio;
+		while(aux != NULL)
+		{
+			printa_fila_simples(aux);
+			aux = aux->prox_fila;
+		}
+	}
+}
+
+Paciente desenfileira_fila_de_prioridades(Fila_Prioridade* fila)
+{
+	Paciente temp;
+	Fila_Simples* aux;
+	aux = fila->inicio;
+	if(fila == NULL || fila->inicio == NULL)
+	{
+		return temp;
+	}
+	temp = desenfileira_fila_simples(aux);
+	return temp;
+}
+
+
+
 
 
 

@@ -79,7 +79,13 @@ Paciente desenfileira_fila_simples(Fila_Simples* fi)
 		return temp;	
 	} 
 	temp = fi->inicio->no_paciente;
-	fi->inicio = fi->inicio->prox;
+	if(fi->inicio->prox == NULL)
+	{
+		fi = fi->prox_fila;
+	}else
+	{
+		fi->inicio = fi->inicio->prox;
+	}
 	return temp;
 }
 
@@ -95,6 +101,20 @@ int tamanho_da_fila_simples(Fila_Simples* fi)
 			tam++;
 		}
 		return tam;
+	}
+}
+
+void printa_fila_simples(Fila_Simples* fi)
+{
+	if(fi != NULL || fi->inicio != NULL)
+	{
+		No_Paciente* aux;
+		aux = fi->inicio;
+		while(aux != NULL)
+		{
+			printa_paciente(aux->no_paciente);
+			aux = aux->prox;
+		}
 	}
 }
 
