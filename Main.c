@@ -37,6 +37,7 @@ int main()
 			contin = 0;
 			break;
 		default:
+			system("cls");
 			printf("Codigo Invalido!");			
 	}
 		if (contin == 1){
