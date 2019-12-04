@@ -93,11 +93,15 @@ void printa_fila_de_prioridades(Fila_Prioridade* fila)
 Paciente desenfileira_fila_de_prioridades(Fila_Prioridade* fila)
 {
 	Paciente temp;
-	Fila_Simples* aux;
-	aux = fila->inicio;
 	if(fila == NULL || fila->inicio == NULL)
 	{
 		return temp;
+	}
+	Fila_Simples* aux;
+	aux = fila->inicio;
+	while(aux == NULL)
+	{
+		aux = aux->prox_fila;	
 	}
 	temp = desenfileira_fila_simples(aux);
 	return temp;
