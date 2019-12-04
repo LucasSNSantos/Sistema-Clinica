@@ -36,6 +36,7 @@ int main()
 		case 5:
 			contin = 0;
 			break;
+			
 		default:
 			printf("Codigo Invalido!");			
 	}

@@ -1,0 +1,12 @@
+
+ Codigo: 123 
+Idade: 12 
+Sexo: m 
+Nome: felipe 
+CPF: 4123123 
+Prioridade: 1 
+
+
+________________
+
+.
