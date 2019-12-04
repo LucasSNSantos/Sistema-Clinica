@@ -29,8 +29,8 @@ void printa_paciente(Paciente p)
 	printf("Prioridade: %d \n", p.prioridade);
 	printf("Nome: %s\n", p.Nome);
 	printf("Idade: %d \n", p.idade);
-	printf("Sexo: %c \n",p.Sexo);
-	printf("Anamnese: %s\n", p.Anamnese);
+	printf("Sexo: %s \n",p.Sexo);
+	printf("Anamnese e Queixa Principal: %s\n", p.Anamnese);
 }
 
 

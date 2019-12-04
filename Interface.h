@@ -15,7 +15,7 @@ int interface()
 	puts("|    Pressione 2 para Pacientes Cadastrados     |");
 	puts("|    Pressione 3 para Cadastrar um Medico       |");
 	puts("|    Pressione 4 para Medicos Disponiveis       |");
-	puts("|    Pressione 5 para SAIR                      |");
+    puts("|    Pressione 5 para SAIR                      |");
 	puts("|_______________________________________________|");
 	fflush(stdin);
 	scanf("%d", &u);
@@ -61,6 +61,30 @@ void sys_reg_Paciente(Fila_Prioridade* fila)
 		reg.prioridade = 3;
 	}
 	insere_paciente_com_prioridades(fila,reg);
+	
+	FILE *file;
+	file=fopen("pacientesfila.txt", "w");
+	if(file==NULL){
+		printf("Arquivo nao pode ser aberto");
+		getchar();
+		exit(1);
+	}
+	fprintf(file, "\n Codigo: %d \n", reg.codigo);
+	fprintf(file, "Idade: %d \n", reg.idade);
+	fprintf(file, "Sexo: %s \n", reg.Sexo);
+	fprintf(file, "Nome: %s \n", reg.Nome);
+	fprintf(file, "CPF: %s \n", reg.CPF);
+	fprintf(file, "Prioridade: %d \n", reg.prioridade);
+	char frase[]= "\n\n________________\n\n";
+	fputs(frase, file);
+	char caractere='.';
+	fputc(caractere, file);
+	
+	fclose(file);
+	
+	system ("pause");
+return 0;
+
 }
 
 void sys_reg_Medico(ListaMedicos* li)
@@ -69,7 +93,6 @@ void sys_reg_Medico(ListaMedicos* li)
 	puts("Digite o CRM: ");
 	fflush(stdin);
 	scanf("%d", &temp.codigo);
-	
 	
 	puts("Digite o Nome: ");
 	fflush(stdin);
@@ -82,6 +105,27 @@ void sys_reg_Medico(ListaMedicos* li)
 	temp.pacientes = inicia_Pilha_Pacientes();
 	
 	insere_medico(li,temp);
+	
+		FILE *file;
+	file=fopen("medicos.txt", "a");
+	if(file==NULL){
+		printf("Arquivo nao pode ser aberto");
+		getchar();
+		exit(1);
+	}
+	fprintf(file, "\n CRM: %d \n", temp.codigo);
+    fprintf(file, "Nome: %s \n", temp.Nome);
+	fprintf(file, "Especialidade: %s \n", temp.Area);
+	char frase[]= "\n\n________________\n\n";
+	fputs(frase, file);
+	char caractere='.';
+	fputc(caractere, file);
+	
+	fclose(file);
+	
+	system ("pause");
+return 0;
+
 }
 
 int sys_mostra_Pacientes(Fila_Prioridade* fila)
@@ -97,6 +141,8 @@ int sys_mostra_Medicos(ListaMedicos* li)
 		printa_lista_medicos(li);	
 	}
 }
+
+
 
 
 

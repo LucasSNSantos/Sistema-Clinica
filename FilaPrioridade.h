@@ -109,7 +109,4 @@ Paciente desenfileira_fila_de_prioridades(Fila_Prioridade* fila)
 
 
 
-
-
-
 #endif
