@@ -11,6 +11,7 @@
 
 //Estrutura do Paciente
 struct paciente{
+	int numero;
 	int codigo;
 	int idade;
 	char Nome[300];
