@@ -5,6 +5,7 @@
 #include"Pacientes.h"
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 int interface()
 {
@@ -15,11 +16,38 @@ int interface()
 	puts("|    Pressione 2 para Pacientes Cadastrados     |");
 	puts("|    Pressione 3 para Cadastrar um Medico       |");
 	puts("|    Pressione 4 para Medicos Disponiveis       |");
-    puts("|    Pressione 5 para SAIR                      |");
+    puts("|    Pressione 5 para Registrar Atendimento     |");
+    puts("|    Pressione 6 para SAIR                      |");
 	puts("|_______________________________________________|");
 	fflush(stdin);
 	scanf("%d", &u);
 	return u;
+}
+
+void sys_gera_relatorio(Paciente reg)
+{
+	FILE *file;
+	file=fopen("pacientesfila.txt", "a");
+	if(file==NULL)
+	{
+		printf("Arquivo nao pode ser aberto");
+		getchar();
+		exit(1);
+	}
+
+	fprintf(file,"\nPaciente numero: %d\n", reg.numero);
+	fprintf(file, "Codigo: %d \n", reg.codigo);
+	fprintf(file, "Idade: %d \n", reg.idade);
+	fprintf(file, "Sexo: %s \n", reg.Sexo);
+	fprintf(file, "Nome: %s \n", reg.Nome);
+	fprintf(file, "CPF: %s \n", reg.CPF);
+	fprintf(file, "Prioridade: %d \n", reg.prioridade);
+	fprintf(file,"Queixa: %s\n", reg.Anamnese);
+	char frase[]= "________________";
+	fputs(frase, file);
+	
+	fclose(file);
+	
 }
 
 void sys_reg_Paciente(Fila_Prioridade* fila, int* cont)
@@ -67,7 +95,6 @@ void sys_reg_Paciente(Fila_Prioridade* fila, int* cont)
 	insere_paciente_com_prioridades(fila,reg);
 	sys_gera_relatorio(reg);
 	
-return 0;
 
 }
 
@@ -90,7 +117,7 @@ void sys_reg_Medico(ListaMedicos* li)
 	
 	insere_medico(li,temp);
 	
-		FILE *file;
+	FILE *file;
 	file=fopen("medicos.txt", "a");
 	if(file==NULL){
 		printf("Arquivo nao pode ser aberto");
@@ -108,7 +135,6 @@ void sys_reg_Medico(ListaMedicos* li)
 	fclose(file);
 	
 	system ("pause");
-return 0;
 
 }
 
@@ -126,10 +152,36 @@ int sys_mostra_Medicos(ListaMedicos* li)
 	}
 }
 
-void sys_gera_relatorio(Paciente reg)
-{
+void sys_registra_Atendimentos(Fila_Prioridade* fila, ListaMedicos* li){
+	
+	int cd;
+	char n[40];
+	Medico atendente;
+	
+	puts("Digite o codigo do medico:");
+	fflush(stdin);
+	scanf("%[^\n]s", &cd);
+	
+	Paciente reg = desenfileira_fila_de_prioridades(fila);
+	
+	if(li == NULL || li->inicio == NULL)
+	{
+		printf("Por enquanto nao ha medicos disponiveis");
+	}else
+	{
+		No* aux = li->inicio;
+		while(aux != NULL)
+		{
+			if(aux->m.codigo == cd){
+				atende_paciente(aux->m, reg);
+				atendente = aux->m;
+			} 
+			aux = aux->prox;
+		}
+	}
+	
 	FILE *file;
-	file=fopen("pacientesfila.txt", "a");
+	file=fopen("regatendimentos.txt", "a");
 	if(file==NULL)
 	{
 		printf("Arquivo nao pode ser aberto");
@@ -137,27 +189,14 @@ void sys_gera_relatorio(Paciente reg)
 		exit(1);
 	}
 
-	fprintf(file,"Paciente numero: %d\n", reg.numero);
-	fprintf(file, "Codigo: %d \n", reg.codigo);
-	fprintf(file, "Idade: %d \n", reg.idade);
-	fprintf(file, "Sexo: %s \n", reg.Sexo);
+	fprintf(file,"\nPaciente numero: %d\n", reg.numero);
 	fprintf(file, "Nome: %s \n", reg.Nome);
-	fprintf(file, "CPF: %s \n", reg.CPF);
-	fprintf(file, "Prioridade: %d \n", reg.prioridade);
 	fprintf(file,"Queixa: %s\n", reg.Anamnese);
-	char frase[]= "________________\n";
+	fprintf(file,"Atendido por: %d\n", atendente.Nome);
+	char frase[]= "________________";
 	fputs(frase, file);
-	//char caractere='.';
-	//fputc(caractere, file);
 	
 	fclose(file);
-	
 }
-
-
-
-
-
-
 
 #endif

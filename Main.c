@@ -24,6 +24,7 @@ int main()
 			sys_reg_Paciente(Atendimentos, &NumPacientes);
 			break;
 		case 2:
+			system("cls");
 			sys_mostra_Pacientes(Atendimentos);
 			break;
 		case 3:
@@ -35,8 +36,13 @@ int main()
 			sys_mostra_Medicos(MedicosDisp);
 			break;
 		case 5:
+			system("cls");
+			sys_registra_Atendimentos(Atendimentos, MedicosDisp);
+			break;
+		case 6:
 			contin = 0;
 			break;
+			
 			
 		default:
 			system("cls");
