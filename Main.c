@@ -5,6 +5,7 @@
 int main()
 {
 	int contin = 1;
+	int NumPacientes = 1;
 	Fila_Prioridade* Atendimentos;
 	ListaMedicos* MedicosDisp;
 	
@@ -20,7 +21,7 @@ int main()
 	{
 		case 1:
 			system("cls");
-			sys_reg_Paciente(Atendimentos);
+			sys_reg_Paciente(Atendimentos, &NumPacientes);
 			break;
 		case 2:
 			sys_mostra_Pacientes(Atendimentos);
@@ -36,6 +37,7 @@ int main()
 		case 5:
 			contin = 0;
 			break;
+			
 		default:
 			system("cls");
 			printf("Codigo Invalido!");			

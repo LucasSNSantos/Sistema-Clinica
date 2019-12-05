@@ -79,13 +79,7 @@ Paciente desenfileira_fila_simples(Fila_Simples* fi)
 		return temp;	
 	} 
 	temp = fi->inicio->no_paciente;
-	if(fi->inicio->prox == NULL)
-	{
-		fi = fi->prox_fila;
-	}else
-	{
-		fi->inicio = fi->inicio->prox;
-	}
+	fi->inicio = fi->inicio->prox;
 	return temp;
 }
 

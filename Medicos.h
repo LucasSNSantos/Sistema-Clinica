@@ -14,9 +14,9 @@ typedef struct medico Medico;
 
 void printa_medico(Medico m)
 {
-	printf(" ");
+	printf("CRM: %d\n", m.codigo );
 	printf("Nome: %s\n",m.Nome);
-	printf("Area: %s\n",m.Area);
+	printf("Especialidade: %s\n\n",m.Area);
 }
 
 void printa_pacientes_atendidos_pelo_medico(Medico m)
