@@ -15,12 +15,3 @@ CPF: 212
 Prioridade: 3 
 Queixa: isasa
 ________________
-Paciente numero: 1
-Codigo: 123 
-Idade: 23 
-Sexo: M 
-Nome: teste a testa 
-CPF: 466846448 
-Prioridade: 3 
-Queixa: ancap
-________________
