@@ -22,9 +22,10 @@ int interface()
 	return u;
 }
 
-void sys_reg_Paciente(Fila_Prioridade* fila)
+void sys_reg_Paciente(Fila_Prioridade* fila, int* cont)
 {
 	Paciente reg;
+	int aux = *cont;
 	puts("Digite o Codigo do paciente:");
 	fflush(stdin);
 	scanf("%d", &reg.codigo);
@@ -53,6 +54,9 @@ void sys_reg_Paciente(Fila_Prioridade* fila)
 	fflush(stdin);
 	scanf("%d", &reg.prioridade);
 	
+	reg.numero = aux;
+	*cont = aux++;
+	
 	if(reg.prioridade < 1)
 	{
 		reg.prioridade = 1;
@@ -61,28 +65,8 @@ void sys_reg_Paciente(Fila_Prioridade* fila)
 		reg.prioridade = 3;
 	}
 	insere_paciente_com_prioridades(fila,reg);
+	sys_gera_relatorio(reg);
 	
-	FILE *file;
-	file=fopen("pacientesfila.txt", "w");
-	if(file==NULL){
-		printf("Arquivo nao pode ser aberto");
-		getchar();
-		exit(1);
-	}
-	fprintf(file, "\n Codigo: %d \n", reg.codigo);
-	fprintf(file, "Idade: %d \n", reg.idade);
-	fprintf(file, "Sexo: %s \n", reg.Sexo);
-	fprintf(file, "Nome: %s \n", reg.Nome);
-	fprintf(file, "CPF: %s \n", reg.CPF);
-	fprintf(file, "Prioridade: %d \n", reg.prioridade);
-	char frase[]= "\n\n________________\n\n";
-	fputs(frase, file);
-	char caractere='.';
-	fputc(caractere, file);
-	
-	fclose(file);
-	
-	system ("pause");
 return 0;
 
 }
@@ -142,6 +126,33 @@ int sys_mostra_Medicos(ListaMedicos* li)
 	}
 }
 
+void sys_gera_relatorio(Paciente reg)
+{
+	FILE *file;
+	file=fopen("pacientesfila.txt", "a");
+	if(file==NULL)
+	{
+		printf("Arquivo nao pode ser aberto");
+		getchar();
+		exit(1);
+	}
+
+	fprintf(file,"Paciente numero: %d\n", reg.numero);
+	fprintf(file, "Codigo: %d \n", reg.codigo);
+	fprintf(file, "Idade: %d \n", reg.idade);
+	fprintf(file, "Sexo: %s \n", reg.Sexo);
+	fprintf(file, "Nome: %s \n", reg.Nome);
+	fprintf(file, "CPF: %s \n", reg.CPF);
+	fprintf(file, "Prioridade: %d \n", reg.prioridade);
+	fprintf(file,"Queixa: %s\n", reg.Anamnese);
+	char frase[]= "________________\n";
+	fputs(frase, file);
+	//char caractere='.';
+	//fputc(caractere, file);
+	
+	fclose(file);
+	
+}
 
 
 

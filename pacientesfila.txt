@@ -1,12 +1,17 @@
-
- Codigo: 123 
+Paciente numero: 1
+Codigo: 1 
 Idade: 12 
-Sexo: m 
-Nome: felipe 
-CPF: 4123123 
+Sexo: masculino 
+Nome: Lucas 
+CPF: 89921 
 Prioridade: 1 
-
-
+Queixa: Dor de cabe‡a
+________________Paciente numero: 1
+Codigo: 89 
+Idade: 128 
+Sexo: Masculino 
+Nome: Caro 
+CPF: 212 
+Prioridade: 3 
+Queixa: isasa
 ________________
-
-.
