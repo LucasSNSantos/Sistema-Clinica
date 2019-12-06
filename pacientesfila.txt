@@ -1,26 +1,29 @@
+
+
 Paciente numero: 1
 Codigo: 1 
 Idade: 12 
-Sexo: masculino 
-Nome: Lucas 
-CPF: 89921 
+Sexo: d 
+Nome: dad 
+CPF: a21212 
 Prioridade: 1 
-Queixa: Dor de cabe‡a
-________________Paciente numero: 1
-Codigo: 89 
-Idade: 128 
-Sexo: Masculino 
-Nome: Caro 
-CPF: 212 
-Prioridade: 3 
-Queixa: isasa
+Queixa: adasdad sad 
 ________________
 Paciente numero: 1
-Codigo: 123 
-Idade: 23 
-Sexo: M 
-Nome: teste a testa 
-CPF: 466846448 
+Codigo: 0 
+Idade: 12 
+Sexo: d 
+Nome: dwadawdwa 
+CPF: 25151 
+Prioridade: 1 
+Queixa: dawdwa
+________________
+Paciente numero: 1
+Codigo: 3 
+Idade: 2 
+Sexo: dwa 
+Nome: dwadwa 
+CPF: dwaddawd 
 Prioridade: 3 
-Queixa: ancap
+Queixa: awdwadad
 ________________

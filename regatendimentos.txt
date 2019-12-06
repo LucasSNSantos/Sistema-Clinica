@@ -1,6 +1,16 @@
 
+Paciente numero: 1
+Nome: dwadwa 
+Queixa: awdwadad
+Atendido por: 
+________________
 Paciente numero: 0
 Nome:  
 Queixa: 
-Atendido por: 6487316
+Atendido por: 
+________________
+Paciente numero: 0
+Nome:  
+Queixa: 
+Atendido por: 
 ________________

@@ -133,8 +133,6 @@ void sys_reg_Medico(ListaMedicos* li)
 	fputc(caractere, file);
 	
 	fclose(file);
-	
-	system ("pause");
 
 }
 
@@ -192,7 +190,7 @@ void sys_registra_Atendimentos(Fila_Prioridade* fila, ListaMedicos* li){
 	fprintf(file,"\nPaciente numero: %d\n", reg.numero);
 	fprintf(file, "Nome: %s \n", reg.Nome);
 	fprintf(file,"Queixa: %s\n", reg.Anamnese);
-	fprintf(file,"Atendido por: %d\n", atendente.Nome);
+	fprintf(file,"Atendido por: %s\n", atendente.Nome);
 	char frase[]= "________________";
 	fputs(frase, file);
 	
